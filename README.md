@@ -1,5 +1,13 @@
 # RStudioProjects
 
+<p align="center">
+  <img 
+    width="300"
+    height="300"
+    src="https://github.com/Tgillett84/RStudioProjects/blob/main/RStudioPicz/rstudio2.jpg"
+  >
+</p>
+
 ![This is an image](https://github.com/Tgillett84/RStudioProjects/blob/main/RStudioPicz/rstudio2.jpg)
 
 ![This is an image](https://github.com/Tgillett84/RStudioProjects/blob/main/RStudioPicz/shinyR.jpg)
