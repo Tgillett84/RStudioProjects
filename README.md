@@ -1,8 +1,7 @@
 # RStudioProjects
 
-<h2 align="center">
 ![This is an image](https://github.com/Tgillett84/RStudioProjects/blob/main/RStudioPicz/rstudio2.jpg)
-<h3 align="center"> 
+
 ![This is an image](https://github.com/Tgillett84/RStudioProjects/blob/main/RStudioPicz/shinyR.jpg)
 
 <h3 align="center">
