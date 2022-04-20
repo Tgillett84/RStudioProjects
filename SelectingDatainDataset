@@ -1,0 +1,51 @@
+#Instead of using head, use subsetting to get the first five rows of data
+retail_trans[1:5,]
+
+#or you can write it like this
+
+retail_trans[c(1,2,3,4,5),]
+
+#you can see if both ways are equal or logical
+retail_trans[1:5,] == retail_trans[c(1,2,3,4,5),]
+
+#Save your first five rows
+five_rows<- retail_trans[1:5,]
+
+#Make a new dataframe with only columns 1 and 4
+invoice_quantity <- retail_trans[,c(1,4)]
+
+#For a quick view to see if it ran
+invoice_quantity
+
+##Another way to subset columns
+#to get the columns that you are looking for
+
+retail_trans[,c("Invoice", "Quantity")]
+
+#or
+
+retail_trans[1:10,c("Country")]
+
+#View the customers that came from the country France
+unique(retail_trans$Country)
+retail_trans[retail_trans$Country == "France",]
+
+#View the invoices that are only specific to France, or your country
+retail_trans[retail_trans$Country == "France",1]
+
+#Make a dataset only for the Country
+france <- retail_trans[retail_trans$Country == "France",]
+
+#View the columns that have negative amounts of Quantity
+retail_trans[retail_trans$Quantity <=0,]
+
+negativeData <- retail_trans[retail_trans$Quantity <=0,]
+
+#You can view these negatives in the summary as well
+summary(retail_trans)
+
+#Removing negatives
+retail_trans$Quantity[retail_trans$Quantity <= 0] <-0
+
+summary(retail_trans)
+retail_trans[retail_trans$Quantity <=0,]

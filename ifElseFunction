@@ -1,0 +1,82 @@
+#Make operations first
+operations_function <- function(x,y){
+  addition <- x+y
+  multiplication <- x*y
+  division <- x/y
+  subtraction <- x-y
+  power1 <- x^y
+  
+  return(c(addition=addition,
+           multiplication=multiplication,
+           division=division,
+           subtraction=subtraction,
+           power1=power1))
+}
+
+#Create a new column for a specific Country
+retail_trans$united_kingdom <- ifelse(retail_trans$Country=="United Kingdom" , TRUE, FALSE)
+
+#To view how many purchases were done in the specific country
+table(retail_trans$united_kingdom)
+
+#Create conditions
+haytham <- 32
+sarah <- 25
+raj <- 21
+mike <- 12
+brad <- 2
+
+# Create age categories
+person <- function(x){
+  if(x <=12){
+    "child"
+  } else if(x <= 18){
+    "teenager"
+  } else { "adult"}
+}
+
+#Check your ifelse age function
+person(haytham)
+person(brad)
+person(mike)
+
+people <- list(brad, haytham, mike, raj, sarah)
+
+length(people)
+
+for(i in[1]: length(people)){ # nolint
+  print(i)
+}
+
+head(retail_trans)
+
+first_10_rows <- retail_trans[1:10, c(1,8)]
+first_10_rows
+
+first_10_rows$ukornot <- ifelse(first_10_rows$Country== "United Kingdom", TRUE,
+                                FALSE)
+
+#Now print every row and let me see each column
+for (i in 1: nrow(first_10_rows)){
+  print(first_10_rows[i,])
+}
+
+#Now use the ifElse function to return false for every country that isn't United Kingdom
+
+uk_function <- function(x){
+  if(x== "United Kingdom"){
+    TRUE
+  } else {
+    FALSE
+  }
+}
+
+uk_function("France")
+
+first_10_rows
+
+#Make a new column with uk that says false
+for (i in 1:nrow(first_10_rows)){
+  first_10_rows$uk[i] <- uk_function(first_10_rows$Country[i])
+}
+

@@ -1,0 +1,39 @@
+###Importing data in R
+library(readr)
+retail_trans<-read_csv("online_retail2.csv")
+
+### View general dataframe information
+str(retail_trans)
+
+# To view the first few lines of the data
+head(retail_trans)
+
+#To view a specific number of rows that you want to see
+head(retail_trans, n=3)
+
+#To see the last three rows
+tail(retail_trans, n=3)
+
+#To see the number of rows in your data
+nrow(retail_trans)
+
+#To see the number of columns in your data
+ncol(retail_trans)
+
+#View the names of the columns
+names(retail_trans)
+
+#Remove Space from Column Name
+names(retail_trans)[7]<-"Customer_id"
+
+#Summary statistics
+summary(retail_trans)
+
+#View one specific column from your dataset
+retail_trans$Country
+
+#Make your column view more specific to different names in column
+unique(retail_trans$Country)
+
+#To view the transactions for each country, or variable in the column
+table(retail_trans$Country)

@@ -1,0 +1,87 @@
+###Import dataset
+retail <- read.csv("online_retail2.csv")
+
+head(retail)
+
+#Load library
+library(dplyr)
+
+#View the column names
+colnames(retail)
+
+#How many units were sold per country? 
+# %>% means from this do that
+
+retail %>% select(Description, Country)
+
+#What is the sum or total quantity
+
+retail %>% select(Description, Country, Quantity) %>%  group_by(Country) %>%
+  summarise(Total_sales= sum(Quantity, na.rm = TRUE))
+
+#Which country has the highest sales? 
+retail %>% select(Description, Country, Quantity) %>%  group_by(Country) %>%
+  summarise(Total_sales= sum(Quantity, na.rm = TRUE)) %>%  arrange(Total_sales)
+
+#Change the order to largest on top
+retail %>% select(Description, Country, Quantity) %>%  group_by(Country) %>%
+  summarise(Total_sales= sum(Quantity, na.rm = TRUE)) %>%  arrange(desc(Total_sales))
+
+#Check the summary
+summary(retail)
+
+#Investigate the negatives in the summary
+
+retail %>% filter(Quantity <= -40000)
+
+#Capture outliers
+
+retail <- retail %>% filter(Quantity >= -40000 | Quantity <= 40000)
+
+summary(retail)
+
+#Find the rest of the negatives in quantity
+
+retail %>% filter(Quantity <=0)
+
+#Find the NAs and the other negatives in the data
+
+retail %>% filter(Quantity <=0) %>% arrange(Quantity)
+
+#Keep only the quantity that is equal or larger than 0
+
+retail <- retail %>% filter(Quantity >= 0)
+
+summary(retail)
+
+retail %>% filter(Price == -53594.36)
+
+#View origination of negative price
+retail %>% filter(Price == -53594.36) %>% select(Description)
+
+#Find more negative prices
+retail %>% filter(Price <= -500)
+
+retail <- retail %>% filter(Price >=0)
+summary(retail)
+
+#Get the maximum price
+retail %>% filter(Price == max(Price))
+
+#Observe descending price view and select the Price, Quantity and Description
+retail %>% arrange(desc(Price)) %>% select(Price, Quantity, Description)
+
+#View their similar customer
+retail %>% arrange(desc(Price)) %>% select(Price, Quantity, Description, Customer.ID)
+
+#View all except the following
+retail <- retail %>% filter(Description != "Manual" | Description != "AMAZON FEE")
+
+summary(retail)
+
+#Save the data into a new csv
+
+write_csv(retail, "retail_clean.csv")
+
+
+
