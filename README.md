@@ -1,12 +1,11 @@
 # RStudioProjects
 
-<p align="center">
-  <img 
-    width="300"
-    height="300"
-    src="https://github.com/Tgillett84/RStudioProjects/blob/main/RStudioPicz/rstudio2.jpg"
-  >
-</p>
+<img 
+  align="left"
+  width="100"
+  height="100"
+  src="https://github.com/Tgillett84/RStudioProjects/blob/main/RStudioPicz/rstudio2.jpg"
+>
 
 <p align="center">
   <img 
