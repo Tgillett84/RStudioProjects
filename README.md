@@ -8,9 +8,14 @@
   >
 </p>
 
-![This is an image](https://github.com/Tgillett84/RStudioProjects/blob/main/RStudioPicz/rstudio2.jpg)
+<p align="center">
+  <img 
+    width="300"
+    height="300"
+    src="https://github.com/Tgillett84/RStudioProjects/blob/main/RStudioPicz/shinyR.jpg"
+  >
+</p>
 
-![This is an image](https://github.com/Tgillett84/RStudioProjects/blob/main/RStudioPicz/shinyR.jpg)
 
 <h3 align="center">
 Hi there, Tameka here 👋
