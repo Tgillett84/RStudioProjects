@@ -1,0 +1,83 @@
+#load package
+library(Metrics)
+library(tidyverse)
+library(DescTools)
+library(ggpubr)
+
+library(InventoryAccountingWeek_1_exercise_1.7)
+
+#define observed and predicted values
+head(InventoryAccountingWeek_1_exercise_1_7)
+
+Month <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+Forecast <- c(115, 121, 117, 104, 109, 123, 113, 115, 92, 102, 101, 108)
+Demand <- c(101, 113, 99, 90, 94, 109, 106, 100, 87, 89, 92, 96)
+
+#calculate mean absolute error between vectors
+mae(Forecast, Demand)
+
+#1. What is the mean forecast error?
+# 12
+
+# The forecast is biased because it isn't zero.
+
+# subtract the mean forecast error from each month's forecast to make it unbiased.
+
+# Mean-absolute deviation (MAD)
+
+mad(Forecast)
+mad(Demand)
+Forecast+Demand
+
+# define data
+data <- data.frame(Demand, Forecast)
+
+#calculate MAD for columns in data frame
+sapply(data, mad)
+
+# Calculate the accuracy of unbiased forecast using MAD
+mean <- c((Forecast)/12)
+mean
+
+mean(data)
+110/12
+
+# the mean forecast error
+mae(Forecast, Demand)
+
+# the accuracy of the modified unbiased forecast using the Mean Absolute Deviation (MAD) method.
+error <- c(Demand-Forecast)
+sum(error)
+ErrorSum <- c(sum(error))
+ErrorSum
+
+AbsoluteValueofError <- c(abs(Demand-Forecast))
+AbsoluteValueofError
+sum(AbsoluteValueofError)
+ABSsum <- c(sum(AbsoluteValueofError))
+
+SquareofError <- c((error)^2)
+SquareofError
+sum(SquareofError)
+SquareofErrorSum <- c(sum(SquareofError))
+
+AbsErrorsDivbyActualVal <- c(abs(Demand-Forecast)/Demand)
+AbsErrorsDivbyActualVal
+sum(AbsErrorsDivbyActualVal)
+AbsErrorsDivbyActualValSum <- sum(AbsErrorsDivbyActualVal)
+
+ncol(InventoryAccountingWeek_1_exercise_1_7)
+
+n <- 12
+MAD <- c(n/ABSsum)
+MAD
+
+MSE <- c(n/SquareofErrorSum)
+MSE
+
+RMSE <- sort(MSE)
+RMSE
+
+MAPE <- c(AbsErrorsDivbyActualValSum/n)*100
+MAPE
+
